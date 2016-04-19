@@ -1,0 +1,61 @@
+enabled: false
+enable_on_routes:
+  - /blog
+disable_on_routes:
+  - /blog/blog-post-to-ignore
+  - /ignore-this-route
+form:
+  name: comments
+  fields:
+    -
+      name: name
+      label: Name
+      placeholder: 'Enter your name'
+      autocomplete: 'on'
+      type: text
+      validate:
+        required: true
+    -
+      name: email
+      label: Email
+      placeholder: 'Enter your email address'
+      type: email
+      validate:
+        required: true
+    -
+      name: text
+      label: Message
+      placeholder: 'Enter your message'
+      type: textarea
+      validate:
+        required: true
+    -
+      name: date
+      type: hidden
+      process:
+        fillWithCurrentDateTime: true
+    -
+      name: title
+      type: hidden
+      evaluateDefault: grav.page.header.title
+    -
+      name: lang
+      type: hidden
+      evaluateDefault: grav.language.getLanguage
+    -
+      name: path
+      type: hidden
+      evaluateDefault: grav.uri.path
+  buttons:
+    -
+      type: submit
+      value: Submit
+  process:
+    -
+      email:
+        subject: '[New Comment] from {{ form.value.name|e }}'
+        body: '{% include ''forms/data.html.twig'' %}'
+    -
+      addComment: null
+    -
+      message: 'Thank you for writing your comment!'

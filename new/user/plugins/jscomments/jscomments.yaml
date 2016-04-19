@@ -1,0 +1,27 @@
+enabled: true
+
+providers:
+  disqus:
+    shortname: ""
+    default_lang: en
+
+  intensedebate:
+    acct: ""
+
+  facebook:
+    appId: "1167043006703046"
+    lang: "en_US"
+    num_posts: 5
+    colorscheme: "light"
+    order_by: social
+    width: "100%"
+
+  muut:
+    forum: ""
+    channel: "General"
+    show_online: false
+    show_title: false
+    upload: false
+    share: true
+    widget: false
+    lang: "en"

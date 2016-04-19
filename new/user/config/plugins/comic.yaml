@@ -1,0 +1,7 @@
+enabled: true
+route: /comic
+redirect: true
+filters:
+  category:
+    - comic
+filter_combinator: and

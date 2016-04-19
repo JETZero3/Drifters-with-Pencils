@@ -1,0 +1,114 @@
+enabled: false
+process: false
+autoemail: true
+autoimage: true
+autolink:
+  enabled: true
+  www: false
+  schemes:
+    - http
+    - https
+bbcodes:
+  enabled: true
+  bbcodes:
+    - b
+    - c
+    - center
+    - code
+    - color
+    - email
+    - float
+    - hr
+    - i
+    - img
+    - list
+    - '*'
+    - quote
+    - s
+    - size
+    - spoiler
+    - u
+    - url
+  custom: null
+censor:
+  enabled: true
+  words: null
+emoji: ''
+emoticons:
+  enabled: true
+  path: ''
+  icons: null
+escaper:
+  enabled: true
+  escape_all: false
+  regex: ''
+fancypants: true
+html:
+  comments: true
+  entities: true
+  elements:
+    enabled: true
+    allowed:
+      safe:
+        a: 'href, *title'
+        abbr: '*title'
+        b: ''
+        br: ''
+        code: ''
+        dd: ''
+        del: ''
+        div: '*class'
+        dl: ''
+        dt: ''
+        i: ''
+        img: 'src, *alt, *height, *title, *width'
+        ins: ''
+        li: ''
+        ol: ''
+        pre: ''
+        rb: ''
+        rp: ''
+        rt: ''
+        rtc: ''
+        ruby: ''
+        span: '*class'
+        strong: ''
+        sub: ''
+        sup: ''
+        table: ''
+        tbody: ''
+        td: '*colspan, *rowspan'
+        tfoot: ''
+        th: '*colspan, *rowspan, *scope'
+        thead: ''
+        tr: ''
+        u: ''
+        ul: ''
+      unsafe: null
+keywords:
+  enabled: true
+  case_sensitive: true
+  template: ''
+  keywords: null
+mediaembed:
+  enabled: true
+  create_individiual_bbcodes: true
+  sites:
+    - dailymotion
+    - facebook
+    - flickr
+    - imgur
+    - instagram
+    - slideshare
+    - soundcloud
+    - spotify
+    - tumblr
+    - twitch
+    - twitter
+    - vimeo
+    - vine
+    - youtube
+preg:
+  enabled: true
+  replace: null
+  match: null

@@ -1,0 +1,11 @@
+email: JETZero3@gmail.com
+fullname: 'Jan Ong'
+title: Admin
+state: enabled
+access:
+  admin:
+    login: true
+    super: true
+  site:
+    login: true
+hashed_password: $2y$10$ReeDL2hrfNNcZx0P8bITSOS1mQxXp.BTS5BRkauVCxCt0DfAjZB5O
