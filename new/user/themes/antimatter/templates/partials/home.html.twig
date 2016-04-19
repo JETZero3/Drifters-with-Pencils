@@ -1,0 +1,35 @@
+<div class="list-item">
+
+    <div class="list-blog-header">
+        {% if page.header.link %}
+            <h4>
+                {% if page.header.continue_link is not sameas(false) %}
+                <a href="{{ page.url }}"><i class="fa fa-angle-double-right"></i></a>
+                {% endif %}
+            </h4>
+        {% endif %}
+    </div>
+
+    <div class="list-blog-padding">
+	<h1>{{ pages.children.nth(1).children.nth(pages.children.nth(1).children.count() - 1).title }}</h1>
+	<img src = {{ pages.children.nth(1).children.nth(pages.children.nth(1).children.count() - 1).media.images|first.url }} />
+
+	
+
+
+
+        <p class="prev-next">
+            <a class="button" href="{{ pages.children.nth(1).children.nth(0).url }}"><i class="fa fa-chevron-left"></i><i class="fa fa-chevron-left"></i> First</a>
+            <a class="button" href="{{ pages.children.nth(1).children.nth(pages.children.nth(1).children.count() - 2).url }}"><i class="fa fa-chevron-left"></i> Previous</a>
+            <a class="button" href="{{ base_url }}/comic">Random</a>
+            {% set afterthought = pages.children.nth(1).children.nth(pages.children.nth(1).children.count() - 1).url|split('/') %}
+            {% set c = "http://drifterswithpencils.com/blog/" ~ afterthought[2] %}
+            <a class="button" href="{{c}}" >Afterthought</a>
+      	    <a class="button disabled" >Next <i class="fa fa-chevron-right"></i></a>
+      	    <a class="button disabled" >Last <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></a>
+            
+        </p>
+
+
+    </div>
+</div>
