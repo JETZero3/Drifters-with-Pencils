@@ -7,11 +7,11 @@ The site currently runs with the Grav CMS. Currently, the site is set up so that
 
 ##### Examples
 First comic (newspaper): 
-![](http://drifterswithpencils.com/user/pages/02.archive/01.half-naked/1_halfnaked.png)  
+![](http://drifterswithpencils.com/user/pages/03.blog/02.half-naked/1_halfnaked_old.png)  
 Wish: 
 ![](http://drifterswithpencils.com/user/pages/02.archive/15.wish/15_wish.png)  
 First comic (website):
-![](http://drifterswithpencils.com/user/pages/03.blog/02.half-naked/1_halfnaked_old.png)  
+![](http://drifterswithpencils.com/user/pages/02.archive/01.half-naked/1_halfnaked.png)  
 ##### Future Features
 - Personal theme
 	- Currently, the site runs on a modified version of the default Antimatter theme. I plan to create my own theme to control the spacing and fonts, while still maintaining the current functionality that is in place. 
