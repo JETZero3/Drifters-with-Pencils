@@ -1,0 +1,46 @@
+{# This is the base for the "comic" template. #}
+
+<div class="list-item">
+
+    <div class="list-blog-header">
+        {% if page.header.link %}
+            <h4>
+                {% if page.header.continue_link is not sameas(false) %}
+                <a href="{{ page.url }}"><i class="fa fa-angle-double-right"></i></a>
+                {% endif %}
+            </h4>
+        {% endif %}
+    </div>
+
+    <div class="list-blog-padding">
+
+	<h1>{{ page.title }}</h1>
+	<img src = {{ page.media.images|first.url }} />
+
+
+
+        <p class="prev-next">
+            {% if not page.isFirst %}
+            	<a class="button" href="{{ page.parent.children.nth(0).url }}"><i class="fa fa-chevron-left"></i><i class="fa fa-chevron-left"></i> First</a>
+                <a class="button" href="{{ page.nextSibling.url }}"><i class="fa fa-chevron-left"></i> Previous</a>
+            {% else %}
+            	<a class="button disabled"><i class="fa fa-chevron-left"></i><i class="fa fa-chevron-left"></i> First</a>	
+      		<a class="button disabled"><i class="fa fa-chevron-left"></i> Previous</a>
+            {% endif %}
+            <a class="button" href="{{ base_url }}/comic"> Random </a>
+            {% set afterthought = page.url|split('/') %}
+            {% set c = "http://drifterswithpencils.com/blog/" ~ afterthought[2] %}
+            <a class="button" href="{{c}}" >Afterthought</a>
+            {% if not page.isLast %}
+                <a class="button" href="{{ page.prevSibling.url }}">Next <i class="fa fa-chevron-right"></i></a>
+                <a class="button" href="{{ page.parent.children.nth(pages.children.nth(1).children.count() - 1).url }}">Last <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></a>
+            {% else %}
+      		<a class="button disabled" >Next <i class="fa fa-chevron-right"></i></a>
+      		<a class="button disabled" >Last <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></a>
+            {% endif %}
+            
+        </p>
+
+
+    </div>
+</div>

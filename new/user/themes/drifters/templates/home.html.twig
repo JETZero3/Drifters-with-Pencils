@@ -1,0 +1,13 @@
+{% embed 'partials/base.html.twig' %}
+
+	{% block content %}
+		
+		<div class="blog-content-item grid pure-g-r">
+			<div id="item" class="block pure-u-2-3">
+			    {% include 'partials/home.html.twig' with {'archive':page.parent, 'truncate':false} %}
+			</div>
+
+		</div>
+	{% endblock %}
+
+{% endembed %}
