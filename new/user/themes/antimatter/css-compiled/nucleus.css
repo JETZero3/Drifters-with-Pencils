@@ -525,7 +525,9 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   margin: -5px;
-  text-rendering: optimizeLegibility; }
+  text-rendering: optimizeLegibility; 
+  font-variant: small-caps; }
+  
 
 h1 {
   font-size: 3.2rem; }
