@@ -1,0 +1,120 @@
+body {
+	background-color: white;
+	font-size: 100%;
+}
+
+p {
+	font-family: "Montserrat", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+}
+
+a.link {
+	color: orange;
+}
+
+a.visited {
+	color: #b36b00;
+}
+
+a.hover {
+	color: #b36b00;
+}
+
+a.active {
+	color: #ffc266;
+}
+
+/* These selectors are for the headers. 
+	Small caps and legibility are required for all header sizes. */
+h1, h2, h3, h4, h5, h6 {
+	font-variant: small-caps;
+	text-rendering: optimizeLegibility; 
+	font-family: "Helvetica", "Arial", sans-serif;
+}
+
+/* Header sizes will be similar to the default Antimatter theme. */
+h1 {
+	font-size: 3.2rem;
+}
+
+h2 {
+	font-size: 2.5rem;
+}
+
+h3 {
+	font-size: 2.1rem;
+}
+
+h4 {
+	font-size: 1.75rem;
+}
+
+h5 {
+	font-size: 1.35rem;
+}
+
+h6 {
+	font-size: 0.85rem;
+}
+
+#header {
+	position: fixed;
+	top: 0;
+	z-index: 10;
+	width: 100%;
+	heigh: 5rem;
+	background-color: white;
+	box-shadow: 0 0.05rem 1rem rgba(0, 0, 0, 0.15);
+	font-family: "Montserrat", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+}
+
+#header #logo {
+	float: left;
+}
+
+#header #logo h3 {
+      font-size: 2rem;
+      line-height: 2rem;
+      margin: 0;
+      text-transform: small-caps; 
+}
+
+#header #logo h3 a {
+	color: #444; 
+}
+
+#header #navbar {
+    font-size: 0.9rem; 
+}
+#header #navbar ul {
+	margin: 0;
+	padding: 0;
+	list-style: none; 
+}
+#header #navbar ul.navigation {
+	display: inline-block;
+	float: right; 
+}
+#header #navbar ul.navigation li {
+	float: left;
+	position: relative; 
+}
+#header #navbar ul.navigation li a {
+	display: inline-block;
+	padding: 0.3rem 0.8rem; 
+}
+
+.button {
+  background: #fff;
+  color: #33cc33;
+  border: 1px solid #33cc33;
+  border-radius: 3px; 
+}
+
+.button:hover {
+    background: #33cc33;
+    color: #fff; 
+}
+
+button:active {
+	box-shadow: 0 1px 0 #118ab5; 
+}

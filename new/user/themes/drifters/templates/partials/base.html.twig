@@ -1,61 +1,83 @@
+{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        {% block head %}
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        {% if header.description %}
-        <meta name="description" content="{{ header.description }}">
-        {% else %}
-        <meta name="description" content="{{ site.description }}">
-        {% endif %}
-        {% if header.robots %}
-        <meta name="robots" content="{{ header.robots }}">
-        {% endif %}
-        <link rel="icon" type="image/png" href="{{ theme_url }}/images/head.png">
+<html lang="{{ grav.language.getActive ?: theme_config.default_lang }}">
+<head>
+{% block head %}
+    <meta charset="utf-8" />
+    <title>{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
+    {% include 'partials/metadata.html.twig' %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/png" href="{{ url('theme://images/head.png', true) }}" />
+    <link rel="canonical" href="{{ page.url(true, true) }}" />
+	<meta property="fb:app_id" content="1167043006703046"/>
+    {% block stylesheets %}
+        {% do assets.addCss('theme://css/drifters-custom.css', 100) %}
 
-        <title>{% if header.title %}{{ header.title }} | {% endif %}{{ site.title }}</title>
+    {% endblock %}
+    {{ assets.css() }}
 
-        {% block stylesheets %}
-            {# Bootstrap core CSS #}
-            {% do assets.add('theme://css/bootstrap.min.css',101) %}
+    {% block javascripts %}
+     
+    {% endblock %}
+    {{ assets.js() }}
 
-        {# Custom styles for this theme #}
-            {% do assets.add('theme://css/bootstrap-custom.css',100) %}
-
-            {{ assets.css() }}
-        {% endblock %}
-
-        {% block javascripts %}
-            {% do assets.add('https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js', 101) %}
-            {% do assets.add('theme://js/bootstrap.min.js') %}
-
-            {% if browser.getBrowser == 'msie' and browser.getVersion >= 8 and browser.getVersion <= 9 %}
-                {% do assets.add('https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js') %}
-                {% do assets.add('https://oss.maxcdn.com/respond/1.4.2/respond.min.js') %}
-            {% endif %}
-
-            {{ assets.js() }}
-        {% endblock %}
-
-        {% endblock head %}
-    </head>
-
-      <body>
-
-        {# include the header + navigation #}
-        {% include 'partials/header.html.twig' %}
-
-        <div class="container">
-            {% block content %}{% endblock %}
-        </div>
-
-        <div class="footer">
-            <div class="container">
-                <p class="text-muted">Mytheme Theme for <a href="http://getgrav.org">Grav</a></p>
+{% endblock head%}
+</head>
+<body id="top" class="{{ page.header.body_classes }}">
+<div id="fb-root"></div>
+    <div id="sb-site">
+        {% block header %}
+        <header id="header">
+            <div id="logo">
+					<h3><img src = "{{ theme_url }}/images/60px.png" />
+					<a href="{{ base_url == '' ? '/' : base_url }}">{{ config.site.title }}</a></h3>
             </div>
+            <div id="navbar">
+                {% block header_extra %}{% endblock %}
+                {% if config.plugins.langswitcher.enabled %}
+                {% include 'partials/langswitcher.html.twig' %}
+                {% endif %}
+                {% block header_navigation %}
+                {% include 'partials/navigation.html.twig' %}
+                {% endblock %}
+                <span class="panel-activation sb-toggle-left navbar-left menu-btn fa fa-bars"></span>
+            </div>
+        </header>
+        {% endblock %}
+
+        {% block showcase %}{% endblock %}
+        {% block body %}
+        <section id="body" class="{{ class }}">
+            {% block content %}{% endblock %}
+        </section>
+        {% endblock %}
+
+        {% block footer %}
+        <footer id="footer">
+            <div class="totop">
+                <span><a href="#" id="toTop"><i class="fa fa-arrow-up"></i></a></span>
+            </div>
+            <p>Drifters with Pencils was created using the <a href="http://getgrav.org">Grav</a> CMS.  <i class="fa fa-heart"></i></p>
+        </footer>
+        {% endblock %}
+    </div>
+    <div class="sb-slidebar sb-left sb-width-thin">
+        <div id="panel">
+        {% include 'partials/navigation.html.twig' %}
         </div>
-    </body>
-    {% block bottom %}{% endblock %}
+    </div>
+    {% block bottom %}
+        {{ assets.js('bottom') }}
+        <script>
+        $(function () {
+            $(document).ready(function() {
+              $.slidebars({
+                hideControlClasses: true,
+                scrollLock: true
+              });
+            });
+        });
+        </script>
+    {% endblock %}
+</body>
 </html>
